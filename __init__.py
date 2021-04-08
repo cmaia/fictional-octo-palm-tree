@@ -16,9 +16,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 	#Preparing the service principal to authenticate in MSGraph
 	app = ConfidentialClientApplication(
-		"<client_id>",
-		authority="https://login.microsoftonline.com/<tenant_id>",
-		client_credential="<XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX>"
+		os.environ['client_id'],
+		authority="https://login.microsoftonline.com/"+os.environ['tenant_id'],
+		client_credential=os.environ['client_secret']
 		)
 	#Get acess token provided by Azure. Dont forget the API permissions
 	result = app.acquire_token_for_client(scopes=scopes)
