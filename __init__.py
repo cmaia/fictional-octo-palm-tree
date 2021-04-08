@@ -43,8 +43,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 		return func.HttpResponse('empty', status_code=404)
 	else:
 		http_headers_response = {
-		'Content-Type': 'application/json',
-		'Cache-Control': 'no-cache',
+			'Content-Type': 'application/json',
+			'Cache-Control': 'no-cache',
 		}
 		return func.HttpResponse(json.dumps(data), status_code=200, headers=http_headers_response)
   #End of code
